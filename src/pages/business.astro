@@ -1,0 +1,34 @@
+---
+// css
+import "../styles/style.css";
+// parts
+import Head from "@components/Head.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+// section
+import PageMv from "@components/ModuleMv.astro";
+import BusinessStrength from "@components/BusinessStrength.astro";
+import BusinessService from "@components/BusinessService.astro";
+import BusinessWork from "@components/BusinessWork.astro";
+import BusinessClient from "@components/BusinessClient.astro";
+import BusinessArea from "@components/BusinessArea.astro";
+import BusinessQuality from "@components/BusinessQuality.astro";
+---
+<html lang="ja">
+	<Head />
+	<body>
+		<div class="wrapper">
+			<Header />
+			<main>
+				<PageMv />
+				<BusinessStrength />
+				<BusinessService />
+				<BusinessWork />
+				<BusinessClient />
+				<BusinessArea />
+				<BusinessQuality />
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>

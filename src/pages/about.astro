@@ -1,0 +1,32 @@
+---
+// css
+import "../styles/style.css";
+// parts
+import Head from "@components/Head.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+// section
+import PageMv from "@components/ModuleMv.astro";
+import AboutIntro from "@components/AboutIntro.astro";
+import AboutOutline from "@components/AboutOutline.astro";
+import AboutLicense from "@components/AboutLicense.astro";
+import AboutHistory from "@components/AboutHistory.astro";
+import AboutAccess from "@components/AboutAccess.astro";
+---
+<html lang="ja">
+	<Head />
+	<body>
+		<div class="wrapper">
+			<Header />
+			<main>
+				<PageMv />
+				<AboutIntro />
+				<AboutOutline />
+				<AboutLicense />
+				<AboutHistory />
+				<AboutAccess />
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>

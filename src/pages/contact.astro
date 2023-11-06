@@ -1,0 +1,44 @@
+---
+// css
+import "../styles/style.css";
+// parts
+import Head from "@components/Head.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+// section
+import PostMv from "@components/ModuleMv.astro";
+import ContactForm from "@components/ModuleForm.astro";
+---
+<html lang="ja">
+	<Head />
+	<body>
+		<div class="wrapper">
+			<Header />
+			<main>
+				<PostMv />
+				<section>
+					<div class="sec-inner">
+						<div class="content-width">
+							<div class="contact-wrapper">
+								<ContactForm />
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>
+<style>
+.contact-wrapper {
+	background-color: var(--gray-bg);
+	padding: 90px;
+}
+
+@media screen and (max-width: 768px) {
+	.contact-wrapper {
+		padding: 30px 10px;
+	}
+}
+</style>

@@ -1,0 +1,36 @@
+---
+// css
+import "../styles/style.css";
+// parts
+import Head from "@components/Head.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+// section
+import PageMv from "@components/ModuleMv.astro";
+import RecruitIntro from "@components/RecruitIntro.astro";
+import RecruitOccupation from "@components/RecruitOccupation.astro";
+import RecruitInterview from "@components/RecruitInterview.astro";
+import RecruitEnvironment from "@components/RecruitEnvironment.astro";
+import RecruitData from "@components/RecruitData.astro";
+import RecruitRequirement from "@components/RecruitRequirement.astro";
+import RecruitEntry from "@components/RecruitEntry.astro";
+---
+<html lang="ja">
+	<Head />
+	<body>
+		<div class="wrapper">
+			<Header />
+			<main>
+				<PageMv />
+				<RecruitIntro />
+				<RecruitOccupation />
+				<RecruitInterview />
+				<RecruitEnvironment />
+				<RecruitData />
+				<RecruitRequirement />
+				<RecruitEntry />
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>
