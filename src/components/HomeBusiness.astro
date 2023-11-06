@@ -1,0 +1,114 @@
+---
+import { Image } from 'astro:assets';
+import businessImage01 from '../images/home/business_01.jpeg';
+import businessImage02 from '../images/home/business_02.jpeg';
+import businessImage03 from '../images/home/business_03.jpeg';
+---
+<section id="home-business">
+	<div class="sec-inner">
+		<div class="content-width">
+			<div class="sec-ttl-box left-center fadein-trigger">
+				<h2 class="sec-ttl">business</h2>
+				<p class="sec-sub-ttl">事業内容</p>
+			</div>
+			<div class="content-box">
+				<div class="txt-area center-left">
+					<p class="txt">
+						Lorem ipsum dolor sit amet consectetur <br>
+						adipisicing elit. Dignissimos ipsa dolore
+					</p>
+					<div class="btn-box">
+						<a href="/business/" class="btn btn-primary"><span>事業内容はこちら</span></a>
+					</div>
+				</div>
+				<div class="img-area">
+					<Image
+					src={businessImage01}
+					alt="事業内容1"
+					class="fadein-trigger"
+					width="428"
+					height="379"
+					/>
+					<Image
+					src={businessImage02}
+					alt="事業内容2"
+					class="fadein-trigger"
+					width="428"
+					height="509"
+					/>
+					<Image
+					src={businessImage03}
+					alt="事業内容3"
+					class="fadein-trigger"
+					width="550"
+					height="292"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<style>
+/* business */
+#home-business .sec-inner {
+	padding: 150px 0 588px;
+}
+
+#home-business .content-box {
+	margin-top: 175px;
+}
+
+#home-business .img-area img {
+	position: absolute;
+}
+
+#home-business .img-area img:nth-child(1) {
+	top: 346px;
+	left:  -150px;
+}
+
+
+#home-business .img-area img:nth-child(2) {
+	top: 0;
+	right:  -144px;
+}
+
+
+#home-business .img-area img:nth-child(3) {
+	top: 700px;
+   right: -5px;
+}
+
+@media screen and (max-width: 767px) {
+	#home-business {
+		background: url(../images/common/bg_circle_01.png) top 104px center / 90% no-repeat;
+	}
+
+	#home-business .sec-inner {
+		padding: 80px 0 0;
+	}
+
+	#home-business .content-box {
+		margin-top: 60px;
+	}
+
+	#home-business .img-area {
+		margin-top: 30px;
+	}
+
+	#home-business .img-area img {
+		height: 200px;
+		width: 100%;
+		object-fit: cover;
+	}
+	
+	#home-business .img-area img:nth-child(1),
+	#home-business .img-area img:nth-child(2),
+	#home-business .img-area img:nth-child(3) {
+		position: relative;
+		top: unset;
+		left: unset;
+		right: unset;
+	}
+}
+</style>

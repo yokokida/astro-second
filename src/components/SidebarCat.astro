@@ -1,0 +1,16 @@
+---
+import { getBlogs } from "../library/microcms";
+const response = await getBlogs({ fields: ["category"] });
+---
+<div class="sidebar-container">
+	<h2 class="head">カテゴリー</h2>
+	<div class="cont">
+		{
+			response.contents.map((content: any) => (
+				<div class="post-cats">
+					<a class="post-cat" href={"/blog/"+content.category.id+"/"}>{content.category.name}</a>
+				</div>
+			))
+		}
+	</div>
+</div>

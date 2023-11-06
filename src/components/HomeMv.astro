@@ -1,0 +1,332 @@
+---
+import { Image } from 'astro:assets';
+import 'swiper/css';
+import logo from '../images/common/logo_01.svg';
+import mvImage01 from '../images/home/mv_01.jpg';
+import mvImage02 from '../images/home/mv_02.jpg';
+import mvImage03 from '../images/home/mv_03.jpg';
+const MvImages = [
+	mvImage01,
+	mvImage02,
+	mvImage03,
+];
+---
+<div id="home-header">
+	<div class="logo-box">
+		<div class="img-box">
+			<a href="/">
+				<Image
+					src={logo}
+					alt="株式会社"
+					width="120"
+					height="36"
+				/>
+			</a>
+		</div>
+	</div>
+	<nav class="nav-box">
+		<ul id="menu-g-nav-1" class="h-menu">
+			<li class="menu-item"><a href="/">トップ</a></li>
+			<li class="menu-item"><a href="/about/">私たちについて</a></li>
+			<li class="menu-item"><a href="/business/">事業紹介</a></li>
+			<li class="menu-item"><a href="/info/">お知らせ</a></li>
+			<li class="menu-item"><a href="/contact/">お問い合わせ</a></li>
+		</ul>
+		<a href="/recruit/" class="btn-recruit"><span>採用情報</span></a>
+	</nav>
+</div>
+<div id="home-mv">
+	<div class="mv-inner">
+		<div id="home-mv-slider" class="m-swiper-container">
+			<div class="swiper">
+				<div class="swiper-wrapper">
+					{
+						MvImages.map((img) => (
+							<div class="swiper-slide">
+								<Image
+									src={img}
+									alt="株式会社"
+									class="fadein-trigger"
+									width="1900"
+									height="1266"
+								/>
+							</div>
+						))
+					}
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+		<div class="txt-area">
+			<p class="txt">
+				テストコピー<br>
+				テストコピーテストコピー<br>
+				テストコピーテストコピー<br>
+				テストコピー<br>
+			</p>
+			<h2 class="ttl">
+				未来に、<br>
+				<span class="zenkaku">｢紡ぐ」</span>しごと。
+			</h2>
+		</div>
+		<a href="#home-about" class="scroll">scroll</a>
+	</div>
+</div>
+<script>
+import { Swiper } from 'swiper';
+const swiperMv = new Swiper("#home-mv-slider .swiper", {
+  loop: true,
+  speed: 1200,
+  autoplay: {
+    delay: 3000,
+  },
+  effect: "fade",
+  fadeEffect: {
+    crossFade: true,
+  },
+  pagination: {
+    clickable: true,
+    el: "#home-mv-slider .swiper-pagination",
+  },
+});
+</script>
+<style>
+.home {
+	color: var(--white);
+}
+
+.home main {
+	margin-top: 0;
+}
+
+@media screen and (max-width: 767px) {
+	.home main {
+		margin-top: 70px;
+	}
+}
+
+/* home-header */
+#header {
+	top: -100%;
+	transition: all 1s ease;
+}
+
+#header.is-active {
+	top: 0;
+	transition: all 1s ease;
+}
+
+#home-header .logo-box {
+	z-index: 10;
+	position: absolute;
+	top: 30px;
+	left: 30px;
+}
+
+#home-header .nav-box {
+	position: absolute;
+	background-color: #fff;
+	top: 0;
+	display: flex;
+	right: 0;
+	z-index: 10;
+}
+
+#home-header .nav-box .h-menu {
+	display: flex;
+	padding: 20px;
+	flex-wrap: wrap;
+	font-size: 1.6rem;
+	color: var(--black);
+	column-gap: 20px;
+}
+
+#home-header .btn-recruit span {
+	padding: 10px 0 10px 40px;
+}
+
+@media screen and (max-width: 767px) {
+	#header {
+		top: 0%;
+		transition: all 1s ease;
+	}
+
+	#home-header {
+		display: none;
+	}
+}
+
+/* mv */
+#home-mv {
+	position: relative;
+}
+
+#home-mv::before {
+	content: '';
+	background-color: var(--navy-light);
+	position: absolute;
+	top: 90px;
+	width: calc(100vw - 170px);
+	min-width: 1100px;
+	height: calc(100vh - 90px + 200px);
+	right: 100%;
+
+	animation-name: slideIn;
+	animation-duration: 1s;
+	animation-delay: .5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+#home-mv .mv-inner {
+	height: calc(100vh - 72px);
+}
+
+#home-mv-slider {
+	left: 500px;
+	height: calc(100vh - 131px);
+}
+
+#home-mv-slider .swiper,
+#home-mv-slider .swiper img {
+	height: 100%;
+	min-width: 1000px;
+}
+
+#home-mv-slider .swiper img {
+	width: calc(100vw - 500px);
+	object-fit: cover;
+}
+
+#home-mv-slider .swiper-pagination {
+	bottom: -33px;
+	display: inline-block;
+	width: auto;
+	left: unset;
+	right: 690px;
+}
+
+#home-mv-slider .swiper-pagination-bullet {
+	background: none;
+	border: 1px solid var(--white);
+	opacity: 1;
+}
+
+#home-mv-slider .swiper-pagination-bullet-active {
+	background: var(--white);
+}
+
+#home-mv .txt-area {
+	position: absolute;
+	bottom: -100px;
+	left: 170px;
+	z-index: 10;
+}
+
+#home-mv .txt-area .ttl {
+	font-size: 10rem;
+	margin-top: 50px;
+	font-family: var(--shippori);
+}
+
+#home-mv .scroll {
+	position: absolute;
+	text-transform: uppercase;
+	left: 80px;
+	bottom: 0;
+	font-size: 1.3rem;
+	padding: 0 20px 88px;
+	background-image: url(../images/common/circle_01.png);
+	background-position: bottom 20px center;
+	background-size: 50px;
+	background-repeat: no-repeat;
+	writing-mode: vertical-rl;
+	-ms-writing-mode: tb-rl;
+	-webkit-writing-mode: vertical-rl;
+}
+
+#home-mv .scroll::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: 90px;
+	width: 1px;
+	height: 40px;
+	background: #eee;
+	animation: scrollAnimation 1.8s ease-in-out infinite;
+	opacity: 0;
+}
+
+@media screen and (min-width: 768px) {
+	#home-mv-slider {
+		opacity: 0;
+		animation-name: fadeInFromRight;
+		animation-duration: 1.5s;
+		animation-delay: 1.5s;
+		animation-fill-mode: forwards;
+	}
+
+	#home-mv .txt-area {
+		opacity: 0;
+		animation-name: fadeInFromBottom;
+		animation-duration: 1.5s;
+		animation-delay: 2s;
+		animation-fill-mode: forwards;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	#home-mv {
+		background-color: var(--navy-light);
+	}
+
+	#home-mv::before {
+		content: none;
+	}
+
+	#home-mv .mv-inner {
+		height: auto;
+	}
+
+	#home-mv-slider {
+		left: 0;
+		height: 500px;
+	}
+
+	#home-mv-slider .swiper,
+	#home-mv-slider .swiper img {
+		width: 100%;
+		min-width: 100%;
+	}
+
+	#home-mv .txt-area {
+		position: relative;
+		bottom: 0;
+		left: 0;
+		padding: 25px 15px 100px;
+	}
+
+	#home-mv .txt-area .ttl {
+		margin-top: 20px;
+		font-size: 4rem;
+		white-space: nowrap;
+	}
+
+	#home-mv .scroll {
+		left: unset;
+		right: 10px;
+		top: 420px;
+		bottom: unset;
+		background-size: 30px;
+		background-position: bottom center;
+		padding: 0 10px 44px;
+		z-index: 10;
+	}
+
+	#home-mv .scroll::after {
+		animation: scrollAnimationSp 1.8s ease-in-out infinite;
+	}
+}
+</style>

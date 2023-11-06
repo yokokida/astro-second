@@ -1,0 +1,354 @@
+---
+import { Image, getImage } from "astro:assets";
+import logo from '../images/common/logo_01.svg';
+
+import ctaImg01 from '../images/common/bg_entry_01.jpg';
+import ctaImg02 from '../images/common/bg_contact_01.jpg';
+const optimizedBgImg01 = await getImage({src: ctaImg01});
+const optimizedBgImg02 = await getImage({src: ctaImg02});
+---
+</main>
+
+<section id="cta-sec">
+	<div class="content-box">
+		<div class="m-cta-column">
+			<a href="/recruit/#recruit-entry" class="item-box entry" style={`background-image:url(${optimizedBgImg01.src});`}>
+				<div class="txt-area">
+					<div class="sec-ttl-box fadein-trigger is-active">
+						<h2 class="sec-ttl">entry</h2>
+						<p class="sec-sub-ttl">採用エントリー</p>
+					</div>
+					<p class="txt">株式会社◯◯の仕事にご興味があるかたは、<br class="pc-only">エントリーフォームからご応募ください。</p>
+					<div class="btn-box">
+						<span class="btn btn-primary">
+							<span>採用エントリーはこちら</span>
+						</span>
+					</div>
+				</div>
+			</a>
+			<a href="/contact/" class="item-box contact" style={`background-image:url(${optimizedBgImg02.src});`}>
+				<div class="txt-area">
+					<div class="sec-ttl-box fadein-trigger is-active">
+						<h2 class="sec-ttl">contact</h2>
+						<p class="sec-sub-ttl">お問い合わせ</p>
+					</div>
+					<p class="txt">株式会社◯◯へのご相談、ご質問は、<br class="pc-only">お問い合わせフォームからお気軽にご連絡ください。</p>
+					<div class="btn-box">
+						<span class="btn btn-primary">
+							<span>お問い合わせはこちら</span>
+						</span>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</section>
+
+<footer id="footer">
+	<div class="f-inner">
+		<div class="content-width">
+			<div class="info-area">
+				<a href="/" class="img-box">
+					<Image
+						src={logo}
+						alt="株式会社"
+						width="200"
+						height="80"
+					/>
+				</a>
+				<p class="address">
+					〒950-2032<br>
+					新潟県新潟市西区<br>
+					TEL. <a href="0000000000" class="tel">0000000000</a>
+				</p>
+			</div>
+			<div class="menu-area">
+				<nav class="menu-box sp-only">
+					<ul id="menu-sp-nav" class="sp-nav">
+						<li class="menu-item">
+							<a href="">
+								<span class="en">top</span><br>
+								<span class="ja">トップ</span>
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="/about/">
+								<span class="en">about us</span><br>
+								<span class="ja">私たちについて</span>
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="/business/">
+								<span class="en">business</span><br>
+								<span class="ja">事業紹介</span>
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="/blog/">
+								<span class="en">news</span><br>
+								<span class="ja">お知らせ</span>
+							</a>
+						</li>
+						<li class="menu-item">
+							<a href="/recruit/">
+								<span class="en">recruit</span><br>
+								<span class="ja">採用情報</span>
+							</a>
+							<ul class="sub-menu">
+								<li class="menu-item"><a href="/recruit/#recruit-occupation">仕事を知る</a></li>
+								<li class="menu-item"><a href="/recruit/#recruit-interview">社員インタビュー</a></li>
+								<li class="menu-item"><a href="/recruit/#recruit-environment">働く環境</a></li>
+								<li class="menu-item"><a href="/recruit/#recruit-requirement">募集要項</a></li>
+								<li class="menu-item"><a href="/recruit/#recruit-entry">エントリー</a></li>
+							</ul>
+						</li>
+						<li class="menu-item">
+							<a href="/contact/">
+								<span class="en">contact</span><br>
+								<span class="ja">お問い合わせ</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<nav class="menu-box pc-only">
+					<ul class="menu-list">
+						<li class="menu-item"><a href="">トップ</a></li>
+						<li class="menu-item"><a href="/about/">私たちについて</a></li>
+					</ul>
+					<ul class="menu-list">
+						<li class="menu-item"><a href="/business/">事業内容</a></li>
+						<li class="menu-item"><a href="/blog/">お知らせ</a></li>
+					</ul>
+					<ul class="menu-list">
+						<li class="menu-item">
+							<a href="/recruit/">採用情報</a>
+							<ul class="sub-menu">
+								<li class="menu-item"><a href="/recruit/#recruit-find">仕事を知る</a></li>
+								<li class="menu-item"><a href="/recruit/#recruit-interview">社員インタビュー</a></li>
+								<li class="menu-item"><a href="/recruit/#recruit-env">働く環境</a></li>
+								<li class="menu-item"><a href="/recruit/#recruit-data">データで見る</a></li>
+								<li class="menu-item"><a href="/recruit/#recruit-requirement">募集要項</a></li>
+								<li class="menu-item"><a href="/recruit/#recruit-entry">エントリー</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="menu-list">
+						<li class="menu-item"><a href="/contact/">お問い合わせ</a></li>
+						<li class="menu-item"><a href="/privacy-policy/">プライバシーポリシー</a></li>
+					</ul>
+				</nav>
+			</div>
+			<a href="#" class="to-top">page top</a>
+		</div>
+	</div>
+	<div class="copyright">
+		<p>©All Rights Reserved.</p>
+	</div>
+</footer>
+
+<style>
+.m-cta-column {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.m-cta-column .item-box {
+	position: relative;
+	padding: 90px 0 100px;
+	width: 50%;
+	text-align: center;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	transition: all .3s ease;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.m-cta-column .item-box:nth-child(2) {
+	border-left: 1px solid var(--white);
+}
+
+.m-cta-column .item-box::before {
+	content: '';
+	background-color: rgba(0, 0, 0, 0.6);
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.m-cta-column .item-box:hover::before {
+	transform: scale(1.05);
+	transition: all .3s ease;
+}
+
+.m-cta-column .item-box .txt {
+	position: relative;
+	margin-top: 45px;
+}
+
+.m-cta-column .item-box .btn-box {
+	margin-top: 50px;
+}
+
+@media screen and (max-width: 767px) {
+	.m-cta-column .item-box {
+		width: 100%;
+		padding: 80px 15px 90px;
+	}
+
+	.m-cta-column .item-box:nth-child(2) {
+		border-top: 1px solid var(--white);
+		border-left: none;
+	}
+
+	.m-cta-column .item-box .txt {
+		text-align: left;
+	}
+}
+
+/* #footer */
+#footer .f-inner {
+	padding: 150px 0;
+}
+
+#footer .content-width {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+#footer .info-area .address {
+	margin-top: 60px;
+}
+
+#footer .info-area .address .tel {
+	font-family: var(--zenkaku);
+}
+
+#footer .menu-box {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 50px;
+	row-gap: 20px;
+}
+
+#footer .menu-list>.menu-item+.menu-item {
+	margin-top: 50px;
+}
+
+#footer .menu-list>.menu-item>a {
+	font-size: 1.6rem;
+}
+
+#footer .menu-list .sub-menu {
+	margin-top: 20px;
+	border-left: 1px solid var(--white);
+}
+
+#footer .menu-list .sub-menu .menu-item {
+	line-height: 1;
+	padding-left: 18px;
+	font-size: 1.3rem;
+	font-weight: 400;
+	position: relative;
+}
+
+#footer .menu-list .sub-menu .menu-item+.menu-item {
+	margin-top: 20px;
+}
+
+#footer .to-top {
+	position: absolute;
+	font-family: var(--inter);
+	text-transform: uppercase;
+	right: -60px;
+	bottom: -90px;
+	font-size: 1.3rem;
+	padding: 0 20px 90px;
+	background-image: url(../images/common/circle_01.png);
+	background-position: bottom 0px center;
+	background-size: 50px;
+	background-repeat: no-repeat;
+	writing-mode: vertical-rl;
+	-ms-writing-mode: tb-rl;
+	-webkit-writing-mode: vertical-rl;
+}
+
+#footer .to-top::after {
+	content: "";
+	position: absolute;
+	width: 1px;
+	background: #eee;
+	animation: scrollAnimationToTop 1.8s ease-in-out infinite;
+	opacity: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+#footer .copyright {
+	font-size: 1.3rem;
+	padding: 30px 0;
+	text-align: center;
+	font-family: var(--inter);
+	color: var(--gray);
+	border-top: 1px solid var(--gray);
+}
+
+@media screen and (max-width: 767px) {
+	#footer .f-inner {
+		padding: 90px 0;
+	}
+
+	#footer .info-area {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		column-gap: 20px;
+		width: 100%;
+	}
+
+	#footer .info-area .img-box {
+		width: 68px;
+	}
+
+	#footer .info-area .address {
+		margin-top: 0;
+		line-height: 1.6;
+		font-size: 1.4rem;
+	}
+
+	#footer .menu-area {
+		margin-top: 30px;
+	}
+
+	#footer .menu-box {
+		width: 100%;
+		row-gap: 0;
+	}
+
+	#footer .menu-box .menu-list {
+		width: 100%;
+	}
+
+	#footer .menu-list>.menu-item+.menu-item {
+		margin-top: 0;
+	}
+
+	#footer .menu-box+.menu-box {
+		margin-top: 50px;
+		margin-left: 0;
+	}
+
+	#footer .menu-list .sub-menu {
+		margin-bottom: 20px;
+	}
+}
+
+</style>

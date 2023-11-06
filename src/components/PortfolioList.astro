@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+import portfolioImg01 from '../images/portfolio/works_01.png';
+import portfolioImg02 from '../images/portfolio/works_02.png';
+import portfolioImg03 from '../images/portfolio/works_03.png';
+import portfolioImg04 from '../images/portfolio/works_04.png';
+const interviews = [
+	{
+		img:portfolioImg01,
+		nameJa:'カネタ建設',
+		year:'1987',
+	},
+	{
+		img:portfolioImg02,
+		nameJa:'カネタ建設',
+		year:'1987',
+	},
+	{
+		img:portfolioImg03,
+		nameJa:'カネタ建設',
+		year:'1987',
+	},
+	{
+		img:portfolioImg04,
+		nameJa:'カネタ建設',
+		year:'1987',
+	}
+];
+---
+<section id="recruit-interview">
+	<div class="sec-inner pt0">
+		<div class="content-width">
+			<div class="sec-ttl-box fadein-trigger">
+				<div class="content-width">
+					<h2 class="sec-ttl">Portfolio</h2>
+					<p class="sec-sub-ttl">ポートフォリオ</p>
+				</div>
+			</div>
+			<div class="content-box">
+				<div class="m-portfolio-container">
+					{
+						interviews.map((interview)=>(
+							<a href="" class="item-box fadein-trigger is-active">
+								<div class="img-box">
+									<Image
+										src={interview["img"]}
+										alt="採用情報インタビュー"
+										class="fadein-trigger"
+										width="400"
+										height="520"
+									/>
+								</div>
+								<div class="txt-box">
+									<p class="name">
+										<span class="ja">{interview["nameJa"]}</span>
+									</p>
+									<p class="info">{interview["year"]}</p>
+								</div>
+							</a>
+						))
+					}
+				</div>
+				<div class="btn-box center-center">
+					<a href="/interview/" class="btn btn-primary">
+						<span>一覧はこちら</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<style>
+/* m-portfolio-container */
+.m-portfolio-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.m-portfolio-container .item-box {
+	width: 32%;
+	position: relative;
+}
+</style>

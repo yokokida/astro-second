@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import { getBlogs } from "../library/microcms";
+const response = await getBlogs({ fields: ["id", "title", "publishedAt", "eyecatch", "category"] });
+---
+<div class="sidebar-container">
+	<h2 class="head">最新の記事</h2>
+	<div class="cont">
+		<div class="m-side-container">
+			{
+				response.contents.map((content: any) => (
+					<div class="item-box">
+						<div class="post-thumb">
+							<a href={"/blog/"+content.id+"/"} class="img-box">
+								<Image
+									src={content.eyecatch.url}
+									alt={content.title}
+									class="fadein-trigger"
+									width="128"
+									height="85"
+								/>
+							</a>
+						</div>
+						<div class="post-info">
+							<div class="post-meta">
+								<time datetime={content.publishedAt} class="post-date">
+									{new Date(content.publishedAt).toLocaleDateString('ja-JP').split('/').join('.')}
+								</time>
+								<div class="post-cats">
+									<a href={"/blog/"+content.category.id+"/"} class="post-cat">{content.category.name}</a>
+								</div>
+							</div>
+							<h3 class="post-ttl">
+								<a href={content.id}>{content.title}</a>
+							</h3>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</div>

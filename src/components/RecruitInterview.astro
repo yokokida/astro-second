@@ -1,0 +1,179 @@
+---
+import { Image } from "astro:assets";
+import recruitImage01 from '../images/home/recruit_01.jpg';
+import recruitImage02 from '../images/home/recruit_02.jpg';
+import recruitImage03 from '../images/home/recruit_03.jpg';
+import recruitImage04 from '../images/home/recruit_04.jpg';
+const interviews = [
+	{
+		img:recruitImage01,
+		nameJa:'メッシ',
+		nameEn:'Lionel Andres Messi',
+		role:'バルセロナ/FW',
+		year:'1987',
+	},
+	{
+		img:recruitImage02,
+		nameJa:'メッシ',
+		nameEn:'Lionel Andres Messi',
+		role:'バルセロナ/FW',
+		year:'1987',
+	},
+	{
+		img:recruitImage03,
+		nameJa:'メッシ',
+		nameEn:'Lionel Andres Messi',
+		role:'バルセロナ/FW',
+		year:'1987',
+	},
+	{
+		img:recruitImage04,
+		nameJa:'メッシ',
+		nameEn:'Lionel Andres Messi',
+		role:'バルセロナ/FW',
+		year:'1987',
+	}
+];
+---
+<section id="recruit-interview">
+	<div class="sec-inner pt0">
+		<div class="sec-ttl-box fadein-trigger">
+			<div class="content-width">
+				<h2 class="sec-ttl">interview</h2>
+				<p class="sec-sub-ttl">社員インタビュー</p>
+			</div>
+		</div>
+		<div class="content-box">
+			<div class="m-interview-list">
+				{
+					interviews.map((interview)=>(
+						<a href="/interview/01/" class="item-box fadein-trigger is-active">
+							<div class="img-box">
+								<Image
+									src={interview["img"]}
+									alt="採用情報インタビュー"
+									class="fadein-trigger"
+									width="400"
+									height="520"
+								/>
+							</div>
+							<div class="txt-box">
+								<p class="name">
+									<span class="ja">{interview["nameJa"]}</span>
+									<span class="en">{interview["nameEn"]}</span>
+								</p>
+								<p class="info">{interview["role"]}/{interview["year"]}</p>
+							</div>
+						</a>
+					))
+				}
+			</div>
+			<div class="btn-box center-center">
+				<a href="/interview/" class="btn btn-primary">
+					<span>一覧はこちら</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+<style>
+/* m-interview-list */
+.m-interview-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.m-interview-list .item-box {
+	width: 25%;
+	position: relative;
+}
+
+.m-interview-list .item-box:nth-child(even) {
+	top: 100px;
+}
+
+.m-interview-list .item-box .img-box {
+	position: relative;
+	overflow: hidden;
+}
+
+.m-interview-list .item-box .img-box::before {
+	content: '';
+	display: inline-block;
+	background: linear-gradient(to top, #666666 0%, rgba(0, 0, 0, 0) 100%);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	mix-blend-mode: multiply;
+	z-index: 1;
+}
+
+.m-interview-list .item-box .img-box::before:-ms-input-placeholder,
+:root {
+	opacity: 0.6;
+}
+
+.m-interview-list .item-box .img-box img {
+	object-fit: cover;
+	width: 100%;
+	transition: all .3s ease;
+}
+
+.m-interview-list .item-box .img-box:hover img {
+	transform: scale(1.1);
+	transition: all .3s ease;
+}
+
+.m-interview-list .item-box .txt-box {
+	position: absolute;
+	left: 20px;
+	top: 370px;
+	z-index: 10;
+}
+
+.m-interview-list .item-box .txt-box .ja {
+	font-family: var(--shippori);
+	font-size: 2.4rem;
+}
+
+.m-interview-list .item-box .txt-box .en {
+	margin-left: 10px;
+}
+
+.m-interview-list .item-box .txt-box .info {
+	margin-top: 0.5em;
+}
+
+@media screen and (max-width: 767px) {
+	.m-interview-list .item-box {
+		position: relative;
+		width: 50%;
+	}
+
+	.m-interview-list .item-box:nth-child(even) {
+		margin-top: 0;
+		top: 0;
+	}
+
+	.m-interview-list .item-box .txt-box {
+		top: unset;
+		bottom: 15px;
+	}
+
+	.m-interview-list .item-box .txt-box .name {
+		line-height: 1.8;
+	}
+
+	.m-interview-list .item-box .txt-box .en {
+		margin-left: 0;
+	}
+
+	.m-interview-list .item-box .img-box,
+	.m-interview-list .item-box .img-box img {
+		height: 300px;
+	}
+}
+</style>

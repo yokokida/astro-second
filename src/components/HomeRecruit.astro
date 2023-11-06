@@ -1,0 +1,124 @@
+---
+import { Image } from 'astro:assets';
+import recruitImage01 from '../images/home/recruit_01.jpg';
+import recruitImage02 from '../images/home/recruit_02.jpg';
+import recruitImage03 from '../images/home/recruit_03.jpg';
+import recruitImage04 from '../images/home/recruit_04.jpg';
+---
+<section id="home-recruit">
+	<div class="sec-inner">
+		<div class="content-width">
+			<div class="content-box">
+				<div class="img-area img-box">
+					<Image
+						src={recruitImage01}
+						alt="採用情報"
+						class="fadein-trigger"
+						width="317"
+						height="400"
+					/>
+					<Image
+						src={recruitImage02}
+						alt="採用情報"
+						class="fadein-trigger"
+						width="317"
+						height="400"
+					/>
+					<Image
+						src={recruitImage03}
+						alt="採用情報"
+						class="fadein-trigger"
+						width="317"
+						height="400"
+					/>
+					<Image
+						src={recruitImage04}
+						alt="採用情報"
+						class="fadein-trigger"
+						width="317"
+						height="400"
+					/>
+				</div>
+				<div class="txt-area">
+					<div class="sec-ttl-box left-center fadein-trigger">
+						<h2 class="sec-ttl">recruit</h2>
+						<p class="sec-sub-ttl">採用情報</p>
+					</div>
+					<div class="cont">
+						<p class="txt">
+							Lorem ipsum dolor sit amet,<br>
+							consectetur adipisicing elit. Eligendi,<br>
+							quia, praesentium cum ex earum, in perferendis
+						</p>
+						<div class="btn-box">
+							<a href="/recruit/" class="btn btn-primary"><span>採用情報はこちら</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<style>
+/* home-recruit */
+#home-recruit {
+	overflow: hidden;
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 200px, var(--navy-light) 0, var(--navy-light) 100%);
+}
+
+#home-recruit .sec-inner {
+	padding-top: 0;
+}
+
+#home-recruit .img-area {
+	width: 1270px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+#home-recruit .img-area img {
+	object-fit: cover;
+}
+
+#home-recruit .img-area img.is-active:nth-child(1) {
+	transition-delay: 0s;
+}
+
+#home-recruit .img-area img.is-active:nth-child(2) {
+	transition-delay: .4s;
+}
+
+#home-recruit .img-area img.is-active:nth-child(3) {
+	transition-delay: .8s;
+}
+
+#home-recruit .img-area img.is-active:nth-child(4) {
+	transition-delay: 1.2s;
+}
+
+#home-recruit .txt-area {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: 50px;
+}
+
+@media screen and (max-width: 767px) {
+	#home-recruit .img-area {
+		width: 100%;
+	}
+
+	#home-recruit .img-area img {
+		width: 50%;
+	}
+
+	#home-recruit .txt-area .sec-ttl-box {
+		width: 100%;
+	}
+
+	#home-recruit .txt-area .cont {
+		margin-top: 30px;
+	}
+}
+</style>

@@ -1,0 +1,126 @@
+---
+import { getImage } from "astro:assets";
+import Breadcrumb from "@components/ModuleBreadcrumb.astro";
+import aboutMv from "../images/common/mv_01.png";
+import businessMv from "../images/common/mv_02.png";
+import recruitMv from "../images/common/mv_03.png";
+
+// import { Breadcrumbs } from 'Breadcrumbs.astro';
+// const hash = url.hash
+// const host = url.host
+// const hostname = url.hostname
+// const href = url.href
+// const origin = url.origin
+// const port = url.port
+// const protocol = url.protocol
+// const search = url.search
+// const searchParams = url.searchParams
+
+const url = new URL(Astro.request.url);
+const pathname = url.pathname
+var ttlEN = '';
+var ttlJA = '';
+var pageMvImg = aboutMv;
+if ( pathname === '/about/' ) {
+	var ttlEN = 'about us';
+	var ttlJA = '私たちについて';
+	var pageMvImg = aboutMv;
+} else if ( pathname === '/business/' ) {
+	var ttlEN = 'business';
+	var ttlJA = '事業紹介';
+	var pageMvImg = businessMv;
+} else if ( pathname === '/recruit/' ) {
+	var ttlEN = 'recruit';
+	var ttlJA = '事業紹介';
+	var pageMvImg = recruitMv;
+} else {
+	var ttlEN = 'recruit';
+	var ttlJA = '事業紹介';
+}
+const optimizedBgImg = await getImage({src: pageMvImg});
+---
+<div id="page-mv" class="mv" style={`background-image:url(${optimizedBgImg.src});`}>
+	<div class="mv-inner">
+		<div class="content-width">
+			<div class="page-ttl-box">
+				<h1 class="page-ttl">{ttlEN}</h1>
+				<p class="page-sub-ttl">{ttlJA}</p>
+			</div>
+		</div>
+	</div>
+</div>
+<Breadcrumb />
+<style>
+/* mv */
+#page-mv {
+	position: relative;
+	background-position: bottom;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#page-mv::before {
+	content: '';
+	background-color: rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+#page-mv .mv-inner {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+#page-mv .page-ttl-box {
+	padding: 60px 0;
+	text-align: center;
+}
+
+#page-mv .page-ttl {
+	font-size: 6rem;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+	font-family: var(--inter);
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+#page-mv .page-sub-ttl {
+	font-family: var(--shippori);
+	font-size: 3.2rem;
+}
+
+@media screen and (min-width: 1920px) {
+	#page-mv {
+		background-position: center;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	#page-mv .mv-inner {
+		padding: 10px 0 90px;
+	}
+
+	#page-mv.about .mv-inner,
+	#page-mv.business .mv-inner,
+	#page-mv.recruit .mv-inner {
+		padding: 10px 0 100px;
+	}
+
+	#page-mv .page-ttl-box {
+		padding-top: 60px;
+	}
+
+	#page-mv .page-ttl {
+		font-size: 4rem;
+	}
+
+	#page-mv .page-sub-ttl {
+		font-size: 2.4rem;
+	}
+}
+</style>

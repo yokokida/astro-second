@@ -1,0 +1,126 @@
+---
+import { Image } from 'astro:assets';
+import businessImage01 from '../images/home/business_01.jpeg';
+import businessImage02 from '../images/home/business_02.jpeg';
+import businessImage03 from '../images/home/business_03.jpeg';
+const services = [
+	{
+		ttl: "U字工事",
+		txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut rerum natus consectetur explicabo. Eligendi excepturi nostrum culpa perspiciatis, nisi ducimus illum libero dolore nesciunt, laudantium architecto corporis quidem molestiae vel?",
+	},
+	{
+		ttl: "U字工事",
+		txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut rerum natus consectetur explicabo. Eligendi excepturi nostrum culpa perspiciatis, nisi ducimus illum libero dolore nesciunt, laudantium architecto corporis quidem molestiae vel?",
+	},
+	{
+		ttl: "U字工事",
+		txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut rerum natus consectetur explicabo. Eligendi excepturi nostrum culpa perspiciatis, nisi ducimus illum libero dolore nesciunt, laudantium architecto corporis quidem molestiae vel?",
+	},
+	{
+		ttl: "U字工事",
+		txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut rerum natus consectetur explicabo. Eligendi excepturi nostrum culpa perspiciatis, nisi ducimus illum libero dolore nesciunt, laudantium architecto corporis quidem molestiae vel?",
+	},
+	{
+		ttl: "U字工事",
+		txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut rerum natus consectetur explicabo. Eligendi excepturi nostrum culpa perspiciatis, nisi ducimus illum libero dolore nesciunt, laudantium architecto corporis quidem molestiae vel?",
+	},
+	{
+		ttl: "U字工事",
+		txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut rerum natus consectetur explicabo. Eligendi excepturi nostrum culpa perspiciatis, nisi ducimus illum libero dolore nesciunt, laudantium architecto corporis quidem molestiae vel?",
+	},
+]
+---
+<section id="business-service">
+	<div class="sec-inner pt0">
+		<div class="content-width">
+			<div class="sec-ttl-box fadein-trigger is-active">
+				<h2 class="sec-ttl">service</h2>
+				<p class="sec-sub-ttl">サービス</p>
+			</div>
+			<div class="content-box">
+				<div class="m-service-container">
+					{
+						services.map((service)=>(
+							<div class="item-box">
+								<h3 class="ttl">{service.ttl}</h3>
+								<p class="txt">{service.txt}</p>
+							</div>
+						))
+					}
+				</div>
+				<div class="img-area">
+					<Image
+					src={businessImage01}
+					alt="事業内容1"
+					class="fadein-trigger"
+					width="428"
+					height="379"
+					/>
+					<Image
+					src={businessImage02}
+					alt="事業内容2"
+					class="fadein-trigger"
+					width="428"
+					height="509"
+					/>
+					<Image
+					src={businessImage03}
+					alt="事業内容3"
+					class="fadein-trigger"
+					width="550"
+					height="292"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<style>
+	#business-service .content-box {
+	padding-bottom: 1200px;
+}
+
+#business-service .img-area img {
+	position: absolute;
+}
+
+#business-service .img-area img:nth-child(1) {
+	bottom: 550px;
+	left: -150px;
+}
+
+#business-service .img-area img:nth-child(2) {
+	bottom: 240px;
+	right: -150px;
+}
+
+#business-service .img-area img:nth-child(3) {
+	bottom: 0px;
+	left: 150px;
+}
+
+@media screen and (max-width: 767px) {
+	#business-service {
+		background: none;
+	}
+
+	#business-service .content-box {
+		padding-bottom: 0px;
+	}
+
+	#business-service .img-area img {
+		position: relative;
+		height: 200px;
+		width: 100%;
+		object-fit: cover;
+	}
+	#business-service .img-area img:nth-child(1),
+	#business-service .img-area img:nth-child(2),
+	#business-service .img-area img:nth-child(3) {
+		bottom: unset;
+		left: unset;
+		right: unset;
+	}
+}
+
+</style>

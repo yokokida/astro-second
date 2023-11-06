@@ -1,0 +1,80 @@
+---
+import { getImage } from "astro:assets";
+import aboutImg01 from '../images/home/about_01.jpg';;
+const optimizedAboutImg01 = await getImage({src: aboutImg01});
+---
+<section id="home-about" style={`background-image:url(${optimizedAboutImg01.src});`}>
+	<div class="sec-inner">
+		<div class="content-width">
+			<div class="sec-ttl-box vertical left-center fadein-trigger">
+				<h2 class="sec-ttl">about us</h2>
+				<p class="sec-sub-ttl">私たちについて</p>
+			</div>
+			<div class="content-box">
+				<p class="txt">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+					Commodi, dignissimos mollitia similique deserunt, et facere<br>
+					dolorem aperiam laboriosam nemo eveniet id quod quis architecto? Voluptatem aliquid eligendi consequunturrecusandae laudantium.
+				</p>
+				<div class="btn-box">
+					<a href="/about/" class="btn btn-primary"><span>会社情報はこちら</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<style>
+/* about */
+#home-about {
+	margin-top: 200px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#home-about::before {
+	content: '';
+	background-color: rgba(0, 0, 0, 0.4);
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+#home-about .sec-inner {
+	padding: 0px 0 200px;
+}
+
+#home-about .sec-ttl-box {
+	position: relative;
+	left: 0;
+	top: -50px;
+	padding-bottom: 0;
+}
+
+#home-about .content-box {
+	width: 640px;
+	margin: -85px 0 0 auto;
+}
+
+@media screen and (max-width: 767px) {
+
+	#home-about {
+		margin-top: 0;
+	}
+
+	#home-about .sec-inner {
+		padding: 100px 0;
+	}
+
+	#home-about .sec-ttl-box {
+		top: 0;
+	}
+
+	#home-about .content-box {
+		width: 100%;
+		margin: 60px 0 0;
+	}
+}
+</style>

@@ -1,0 +1,69 @@
+---
+import { Image } from 'astro:assets';
+import environmentImg01 from '../images/page/recruit/environment_01.jpg';
+import environmentImg02 from '../images/page/recruit/environment_02.jpg';
+import environmentImg03 from '../images/page/recruit/environment_03.jpg';
+const environments = [
+	{
+		img: environmentImg01,
+		ttl: "教育のサポートが手厚い環境",
+		txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+	},
+	{
+		img: environmentImg02,
+		ttl: "教育のサポートが手厚い環境",
+		txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+	},
+	{
+		img: environmentImg03,
+		ttl: "教育のサポートが手厚い環境",
+		txt: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+	},
+];
+---
+<section id="recruit-environment">
+	<div class="sec-inner pt0">
+		<div class="content-width">
+			<div class="sec-ttl-box fadein-trigger is-active">
+				<h2 class="sec-ttl">environment</h2>
+				<p class="sec-sub-ttl">働く環境</p>
+			</div>
+			<div class="content-box">
+				{
+					environments.map((env)=>(
+						<div class="m-img-txt-box">
+							<div class="img-area">
+								<div class="img-box">
+									<Image
+										src={env["img"]}
+										alt="対応エリア"
+										width="600"
+										height="400"
+									/>
+								</div>
+							</div>
+							<div class="txt-area">
+								<h3 class="title">{env["ttl"]}</h3>
+								<div class="txt">{env["txt"]}</div>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
+<style>
+#recruit-environment .m-img-txt-box {
+	align-items: center;
+}
+
+#recruit-environment .m-img-txt-box:nth-child(even) {
+	flex-direction: row-reverse;
+}
+
+#recruit-environment .m-img-txt-box:nth-child(even) .txt-area {
+	padding-left: 0;
+	padding-right: 50px;
+}
+</style>

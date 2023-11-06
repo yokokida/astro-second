@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import dataImage01 from '../images/page/recruit/data_01.jpg';
+import dataImage02 from '../images/page/recruit/data_02.jpg';
+import dataImage03 from '../images/page/recruit/data_03.jpg';
+import dataImage04 from '../images/page/recruit/data_04.jpg';
+import dataImage05 from '../images/page/recruit/data_05.jpg';
+import dataImage06 from '../images/page/recruit/data_06.jpg';
+const dataImages = [
+	dataImage01,
+	dataImage02,
+	dataImage03,
+	dataImage04,
+	dataImage05,
+	dataImage06,
+];
+---
+<section id="recruit-data">
+	<div class="sec-inner pt0">
+		<div class="content-width">
+			<div class="sec-ttl-box fadein-trigger is-active">
+				<h2 class="sec-ttl">data of nsk</h2>
+				<p class="sec-sub-ttl">データで見る株式会社OO</p>
+			</div>
+			<div class="content-box">
+				<div class="data-container">
+					{
+						dataImages.map((img) => (
+							<div class="img-box">
+								<Image
+									src={img}
+									alt="データで見る株式会社OO"
+									class="fadein-trigger"
+									width="359"
+									height="359"
+								/>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<style>
+#recruit-data .data-container {
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 30px;
+	column-gap: 2.725%;
+}
+
+#recruit-data .data-container .img-box {
+	width: 31.5%;
+}
+
+@media screen and (max-width: 767px) {
+
+	#recruit-data .data-container {
+		column-gap: 4%;
+		row-gap: 10px;
+	}
+
+	#recruit-data .data-container .img-box {
+		width: 48%;
+	}
+}
+</style>

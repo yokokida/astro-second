@@ -1,0 +1,95 @@
+---
+const currentUrl = new URL(Astro.request.url);
+const pathName = currentUrl.pathname;
+
+const last = pathName.replace(/\/$/, '');
+const first = last.replace(/^\//, '');
+const pathnameArr = first.split('/');
+
+const pathnameArrs = pathName.split('/');
+const cleanArr = pathnameArrs.filter(Boolean);
+
+
+const hash = currentUrl.hash
+const host = currentUrl.host
+const hostname = currentUrl.hostname
+const href = currentUrl.href
+const origin = currentUrl.origin
+const port = currentUrl.port
+const protocol = currentUrl.protocol
+const search = currentUrl.search
+const searchParams = currentUrl.searchParams
+
+const allPosts = await Astro.glob("../pages/*.astro");
+---
+<script>
+const pathName = location.pathname;
+const pathnameArrs = pathName.split('/');
+const cleanArr = pathnameArrs.filter(Boolean);
+console.log(cleanArr);
+</script>
+<!-- {
+	allPosts.map((obj)=>(
+		<span>{obj.url} --- </span>
+	))
+} -->
+<nav class="breadcrumb-box">
+	<div class="content-width">
+		<ol class="breadcrumbs">
+			<li class="breadcrumb-item"><a href="/" class="home">TOP</a></li>
+			{
+				cleanArr.map((pageSlug) => (
+					<li class="breadcrumb-item"><span>
+						{'brands'===pageSlug && ('ブランド')}
+						{'adidas'===pageSlug && ('アディダス')}
+						{'about'===pageSlug && ('私たちについて')}
+						{'business'===pageSlug && ('事業紹介')}
+						{'contact'===pageSlug && ('お問い合わせ')}
+						{'blog'===pageSlug && ('ブログ')}
+						{'recruit'===pageSlug && ('採用情報')}
+					</span></li>
+				))
+			}
+		</ol>
+	</div>
+</nav>
+<style>
+/* breadcrumb */
+.breadcrumb-box {
+	padding: 15px 0;
+}
+
+.breadcrumbs {
+	font-size: 1.4rem;
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 30px;
+}
+
+.breadcrumbs,
+.breadcrumbs a,
+.breadcrumbs span {
+	color: var(--white);
+}
+
+.breadcrumb-item {
+	position: relative;
+
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	left: -20px;
+	border-top: 1px solid var(--white);
+	border-right: 1px solid var(--white);
+	width: 6px;
+	height: 6px;
+	transform: rotate(45deg);
+}
+
+</style>

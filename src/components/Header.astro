@@ -1,0 +1,351 @@
+---
+import { Image } from "astro:assets";
+import logo from '../images/common/logo_01.svg';
+---
+<header id="header">
+	<div class="h-inner">
+		<div class="h-function">
+			<h1 class="logo-box">
+				<a href="/" class="img-box">
+					<Image
+						src={logo}
+						alt="株式会社"
+						width="146"
+						height="31"
+					/>
+				</a>
+			</h1>
+		</div>
+		<nav class="nav-area">
+			<ul id="menu-g-nav" class="h-menu">
+				<li class="menu-item"><a href="/" aria-current="page">トップ</a></li>
+				<li class="menu-item"><a href="/about/">私たちについて</a></li>
+				<li class="menu-item"><a href="/business/">事業紹介</a></li>
+				<li class="menu-item"><a href="/blog/">お知らせ</a></li>
+				<li class="menu-item"><a href="/contact/">お問い合わせ</a></li>
+			</ul>
+			<a href="/recruit/" class="btn-recruit"><span>採用情報</span></a>
+		</nav>
+		<div id="btn-hamburger">
+			<span class="border"></span>
+			<span class="border"></span>
+		</div>
+	</div>
+	<div id="sp-menu">
+		<nav>
+			<ul id="menu-sp-nav" class="sp-nav">
+				<li class="menu-item">
+					<a href="">
+						<span class="en">top</span><br>
+						<span class="ja">トップ</span>
+					</a>
+				</li>
+				<li class="menu-item">
+					<a href="/about/">
+						<span class="en">about us</span><br>
+						<span class="ja">私たちについて</span>
+					</a>
+				</li>
+				<li class="menu-item">
+					<a href="/business/">
+						<span class="en">business</span><br>
+						<span class="ja">事業紹介</span>
+					</a>
+				</li>
+				<li class="menu-item">
+					<a href="/blog/">
+						<span class="en">news</span><br>
+						<span class="ja">お知らせ</span>
+					</a>
+				</li>
+				<li class="menu-item">
+					<a href="/recruit/">
+						<span class="en">recruit</span><br>
+						<span class="ja">採用情報</span>
+					</a>
+					<ul class="sub-menu">
+						<li class="menu-item"><a href="/recruit/#recruit-occupation">仕事を知る</a></li>
+						<li class="menu-item"><a href="/recruit/#recruit-interview">社員インタビュー</a></li>
+						<li class="menu-item"><a href="/recruit/#recruit-environment">働く環境</a></li>
+						<li class="menu-item"><a href="/recruit/#recruit-requirement">募集要項</a></li>
+						<li class="menu-item"><a href="/recruit/#recruit-entry">エントリー</a></li>
+					</ul>
+				</li>
+				<li class="menu-item">
+					<a href="/contact/">
+						<span class="en">contact</span><br>
+						<span class="ja">お問い合わせ</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="info-area">
+			<div class="img-box">
+				<Image
+					src={logo}
+					alt="株式会社"
+					width="146"
+					height="31"
+				/>
+			</div>
+			<p class="address">〒950-2032<br>新潟県新潟市西区的場流通1丁目3-23<br>TEL. <a href="tel:025-269-1111" class="tel">025-269-1111</a> / FAX. 025-269-1118</p>
+		</div>
+	</div>
+</header>
+<style>
+	/* header */
+#header {
+	position: fixed;
+	z-index: 99;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: var(--navy);
+}
+
+#header .h-inner {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	align-items: center;
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+
+#header .logo-box {
+	box-sizing: border-box;
+	display: flex;
+}
+
+#header .nav-area {
+	display: flex;
+}
+
+#header .nav-area .h-menu {
+	display: flex;
+	padding: 0 20px;
+	flex-wrap: wrap;
+	column-gap: 20px;
+	align-items: center;
+}
+
+#header .nav-area .h-menu>.menu-item>a {
+	font-size: 1.6rem;
+	font-weight: 700;
+	display: inline-block;
+}
+
+#header .nav-area .h-menu>.current-menu-item>a,
+#header .nav-area .h-menu>.current_page_item>a,
+#header .nav-area .h-menu>.current_page_parent>a {
+	border-bottom: 1px solid var(--black);
+}
+
+#header .nav-area .menu-item-has-children .sub-menu {
+	position: absolute;
+	top: 81px;
+	left: 0;
+	display: flex;
+	visibility: hidden;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+	padding: 15px 0;
+	opacity: 0;
+	background-color: #f7f7f7;
+}
+
+#header .nav-area .menu-item-has-children:nth-child(1) .sub-menu {
+	background-color: #f1e5ce;
+}
+
+#header .nav-area .menu-item-has-children:nth-child(2) .sub-menu {
+	background-color: #cee0f1;
+}
+
+#header .nav-area .menu-item-has-children:nth-child(3) .sub-menu {
+	background-color: #cef1d8;
+}
+
+#header .nav-area .menu-item-has-children:hover>.sub-menu {
+	z-index: 1;
+	visibility: visible;
+	opacity: 1;
+}
+
+#header .nav-area .menu-item-has-children.current_page_parent .sub-menu {
+	visibility: visible;
+	opacity: 1;
+}
+
+#header .nav-area .sub-menu .menu-item {
+	font-size: 1.4rem;
+}
+
+#header .nav-area .sub-menu .menu-item.current_page_item {
+	border-bottom: solid 1px var(--black);
+}
+
+#header .nav-area .sub-menu .menu-item+.menu-item {
+	margin-left: 25px;
+}
+
+#header .btn-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-left: 30px;
+}
+
+#header .btn-box {
+	margin-top: 0;
+}
+
+#header .btn-box+.btn-box {
+	margin-left: 15px;
+}
+
+#header .btn-box .btn {
+	padding: 5px 20px 5px 15px;
+	text-align: center;
+}
+
+#btn-hamburger {
+	margin-right: 20px;
+	position: relative;
+	display: none;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	background: url(../images/common/bg_circle_03.svg) center / 30px no-repeat;
+}
+
+#btn-hamburger span {
+	position: absolute;
+	left: 8px;
+	display: inline-block;
+	box-sizing: border-box;
+	height: 1px;
+	transition: all .5s;
+	border-radius: 4px;
+	background-color: var(--white);
+}
+
+#btn-hamburger span:nth-of-type(1) {
+	top: 13px;
+	width: 15px;
+}
+
+#btn-hamburger span:nth-of-type(2) {
+	top: 17px;
+	width: 10px;
+}
+
+#btn-hamburger.is-active span:nth-of-type(1) {
+	top: 9px;
+	left: 8px;
+	width: 50%;
+	transform: translateY(6px) rotate(-45deg);
+}
+
+#btn-hamburger.is-active span:nth-of-type(2) {
+	top: 21px;
+	left: 8px;
+	width: 50%;
+	transform: translateY(-6px) rotate(45deg);
+}
+
+
+@media screen and (max-width: 1000px) {
+	#btn-hamburger {
+		display: inline-block;
+	}
+
+	#header .nav-area {
+		display: none;
+	}
+}
+
+/* sp-menu */
+#sp-menu {
+	position: absolute;
+	top: 70px;
+	left: 0;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 50px 20px 150px 20px;
+	transition: all .35s ease;
+	pointer-events: none;
+	opacity: 0;
+	color: var(--white);
+	background-color: var(--black);
+	overflow: scroll;
+	border-top: 1px solid var(--gray-border);
+}
+
+#sp-menu.is-active {
+	position: fixed;
+	z-index: 99;
+	height: calc(100vh - 70px);
+	transition: all .35s ease;
+	pointer-events: auto;
+	opacity: 1;
+}
+
+#sp-menu .info-area {
+	display: flex;
+	margin-top: 50px;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	column-gap: 20px;
+	width: 100%;
+}
+
+#sp-menu .info-area .img-box {
+	width: 68px;
+}
+
+#sp-menu .info-area .address {
+	font-size: 1.4rem;
+}
+
+/* sp-menu */
+#menu-sp-nav .menu-item a {
+	display: block;
+	width: 100%;
+	line-height: 1.4;
+}
+
+#menu-sp-nav>.menu-item+.menu-item {
+	margin-top: 25px;
+}
+
+#menu-sp-nav .menu-item .en {
+	font-family: var(--inter);
+	font-weight: var(--bold);
+	font-size: 3.2rem;
+	text-transform: uppercase;
+}
+
+#menu-sp-nav .menu-item .ja {
+	font-size: 1.3rem;
+	font-family: var(--shippori);
+}
+
+#menu-sp-nav .sub-menu {
+	position: relative;
+	margin-top: 25px;
+	margin-left: 20px;
+	padding-left: 20px;
+	border-left: 1px solid var(--gray);
+}
+
+#menu-sp-nav .sub-menu .menu-item {
+	font-size: 2rem;
+}
+
+#menu-sp-nav .sub-menu .menu-item+.menu-item {
+	margin-top: 20px;
+}
+</style>
