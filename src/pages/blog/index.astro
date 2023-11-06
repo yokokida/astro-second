@@ -1,0 +1,52 @@
+---
+// css
+import "../../styles/style.css";
+import Head from "../../components/Head.astro";
+import Header from "../../components/Header.astro";
+import PostMv from "../../components/ModuleMv.astro";
+import Footer from "../../components/Footer.astro";
+// posts
+import { getBlogs } from "../../library/microcms";
+const response = await getBlogs({ fields: ["id", "title", "publishedAt", "category"] });
+---
+<html lang="ja">
+	<Head />
+	<body>
+		<div class="wrapper">
+			<Header />
+			<main>
+
+				<PostMv />
+				<div class="archive-content">
+					<div class="content-width">
+
+						<div class="m-post-container">
+							{
+								response.contents.map((content: any) => (
+									<div class="item-box">
+										<div class="post-meta">
+											<time datetime={content.publishedAt} class="post-date">
+												{new Date(content.publishedAt).toLocaleDateString('ja-JP').split('/').join('.')}
+											</time>
+											<div class="post-cats">
+												<a href={"/blog/"+content.category.id+"/"} class="post-cat">{content.category.name}</a>
+											</div>
+										</div>
+										<h3 class="post-ttl">
+											<a href={content.id}>{content.title}</a>
+										</h3>
+									</div>
+								))
+							}
+						</div>
+						<div class="wp-pagenavi" role="navigation">
+							<span aria-current="page" class="current">1</span>
+						</div>
+					</div>
+				</div>
+
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>

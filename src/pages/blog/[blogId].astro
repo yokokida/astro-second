@@ -1,0 +1,71 @@
+---
+// css
+import "../../styles/style.css";
+// parts
+import Head from "../../components/Head.astro";
+import Header from "../../components/Header.astro";
+import PageMv from "../../components/ModuleMv.astro";
+import Sidebar from "../../components/Sidebar.astro";
+import Footer from "../../components/Footer.astro";
+
+import { getBlogs, getBlogDetail } from "../../library/microcms";
+
+export async function getStaticPaths() {
+  const response = await getBlogs({ fields: ["id"] });
+  return response.contents.map((content: any) => ({
+    params: {
+      blogId: content.id,
+    },
+  }));
+}
+
+const { blogId } = Astro.params;
+const blog = await getBlogDetail(blogId as string);
+---
+<html lang="ja">
+	<Head />
+	<body>
+		<div class="wrapper">
+			<Header />
+			<main>
+
+				<PageMv />
+
+				<div class="single-content">
+					<div class="content-width">
+						<div id="article-container" class="has-sidebar">
+
+							<article id="entry-article">
+								<div class="entry-ttl-box">
+									<div class="post-meta">
+										<time datetime={blog.publishedAt} class="post-date">
+											{new Date(blog.publishedAt).toLocaleDateString('ja-JP').split('/').join('.')}
+										</time>
+										<div class="post-cats">
+											<a class="post-cat" href="/blog/">お知らせ</a>
+										</div>
+									</div>
+									<h1 class="post-ttl">{blog.title}</h1>
+								</div>
+								<div class="entry-content" set:html={blog.content}></div>
+								<div id="nav-below">
+									<span>前の記事はありません</span>
+									<a href="/blog/" class="btn btn-border pc-only">
+										<span>一覧に戻る</span>
+									</a>
+									<span>次の記事はありません</span>
+								</div>
+								<a href="/blog/" class="btn btn-border sp-only">
+									<span>一覧に戻る</span>
+								</a>
+							</article>
+							<Sidebar />
+						</div>
+					</div>
+				</div>
+
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>
