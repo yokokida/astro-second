@@ -1,16 +1,34 @@
 ---
-
+// css
+import "../styles/style.css";
+import "../styles/home.css";
+// parts
+import Head from "@components/Head.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+// section
+import HomeMv from "@components/HomeMv.astro";
+import HomeAbout from "@components/HomeAbout.astro";
+import HomeBusiness from "@components/HomeBusiness.astro";
+import HomeNews from "@components/HomeNews.astro";
+import HomeRecruit from "@components/HomeRecruit.astro";
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
+<html lang="ja">
+	<Head />
 	<body>
-		<h1>Astro</h1>
+		<div class="wrapper">
+			<Header />
+			<main>
+				<HomeMv client:load />
+				<HomeAbout />
+				<HomeBusiness />
+				<HomeNews />
+				<HomeRecruit />
+			</main>
+			<Footer />
+		</div>
 	</body>
 </html>
+<script>
+	import "../myscript.js"
+</script>
