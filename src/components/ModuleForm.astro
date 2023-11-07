@@ -1,180 +1,48 @@
-<div class="contact-box">
-	<form name="contact" method="POST" data-netlify="true">
-		<div id="form-fields">
+<div id="form-box">
+	<form method="POST" action="https://ssgform.com/s/IwCQKp0HXEIE">
+		<div class="fields">
 			<dl>
-				<dt><span class="required">必須</span><span>氏名</span></dt>
+				<dt class="required"><span>氏名</span></dt>
 				<dd>
-					<input size="40" class="" aria-required="true" value="" type="text" name="your-name">
+					<input type="text" name="your-name" required="required" placeholder="山田太朗">
 				</dd>
 			</dl>
 			<dl>
-				<dt><span class="required">必須</span><span>ふりがな</span></dt>
-				<dd>
-					<input size="40" class="" aria-required="true" value="" type="text" name="your-kana">
-				</dd>
+				<dt class="required"><span>ふりがな</span></dt>
+				<dd><input type="text" name="your-kana" required="required" placeholder="やまだたろう"></dd>
 			</dl>
 			<dl>
-				<dt><span class="required">必須</span><span>住所</span></dt>
-				<dd>
-					<input size="40" class="" aria-required="true" value="" type="text" name="your-zip" onkeyup="AjaxZip3.zip2addr(this,'','your-address','your-address');">
-					<input size="40" class="" aria-required="true" value="" type="text" name="your-address"></span>
-				</dd>
+				<dt class="required"><span>住所</span></dt>
+				<dd><input type="text" name="your-zip" required="required" placeholder="000-0000"><input type="text" name="your-address" required="required" placeholder="新潟県新潟市"></span></dd>
 			</dl>
 			<dl>
-				<dt><span class="required">必須</span><span>メールアドレス</span></dt>
-				<dd>
-					<input size="40" class="" aria-required="true" aria-invalid="false" value="" type="email" name="your-email">
-				</dd>
+				<dt class="required"><span>メールアドレス</span></dt>
+				<dd><input type="email" name="your-email" required="required" placeholder="xxx@gmail.com"></dd>
 			</dl>
 			<dl>
-				<dt><span class="required">必須</span><span>電話番号</span></dt>
-				<dd>
-					<input size="40" class="" aria-required="true" aria-invalid="false" value="" type="tel" name="your-tel">
-				</dd>
+				<dt class="required"><span>電話番号</span></dt>
+				<dd><input type="tel" name="your-tel" required="required" placeholder="000-0000-0000"></dd>
 			</dl>
 			<dl>
-				<dt><span class="required">必須</span><span>備考・メッセージ</span></dt>
-				<dd>
-					<textarea cols="40" rows="10" class="" aria-required="true" aria-invalid="false" name="your-content"></textarea>
-				</dd>
+				<dt class="required"><span>備考・メッセージ</span></dt>
+				<dd><textarea cols="40" rows="10" name="your-content" required="required" placeholder="ご入力ください"></textarea></dd>
 			</dl>
 		</div>
-		<div id="submit-box">
-			<p class="consent-check" data-name="consent-check"><span class="wpcf7-acceptance"><span class="wpcf7-list-item"><label><input type="checkbox" name="consent-check" value="1" aria-invalid="false"><span class="wpcf7-list-item-label"><a href="/privacy-policy/">プライバシーポリシー</a>に同意しました。<span class="required">（必須）</span></span></label></span></span></p></p>
-			<p>
-				<input class="btn-tertiary" type="submit" value="送信する" disabled=""><span class="wpcf7-spinner"></span></p>
-			</p>
+		<p class="consent" data-name="consent-check">
+			<span class="wpcf7-acceptance">
+				<span class="wpcf7-list-item">
+					<label>
+						<input type="checkbox" name="consent-check" value="1">
+						<span class="wpcf7-list-item-label">
+							<a href="/privacy-policy/">プライバシーポリシー</a>に同意しました。
+							<span class="required">（必須）</span>
+						</span>
+					</label>
+				</span>
+			</span>
+		</p>
+		<div class="submit">
+			<input class="btn-tertiary" type="submit" value="送信する">
 		</div>
 	</form>
 </div>
-<style>
-dl {
-	width: 100%;
-	margin: 0;
-	padding: 20px 0 15px;
-	display: flex;
-	border-bottom: var(--gray) 1px solid;
-}
-
-dt {
-	box-sizing: border-box;
-	width: 260px;
-	padding: 6px;
-	display: flex;
-	align-items: baseline;
-}
-
-dt .required {
-	display: inline-block;
-	padding: 2px 5px;
-	background-color: var(--red);
-	color: #fff;
-	font-size: 12px;
-	font-weight: normal;
-	line-height: normal;
-	text-align: center;
-	vertical-align: middle;
-	box-sizing: border-box;
-	width: calc(2.5em + 10px);
-	float: left;
-}
-
-dt span + span {
-	box-sizing: border-box;
-	width: calc(100% - (2.5em + 10px));
-	padding-left: 8px;
-	line-height: 1.4;
-	overflow-wrap: break-word !important;
-	display: block;
-	float: left;
-}
-
-dd {
-	box-sizing: border-box;
-	flex: 1;
-	margin-left: 0;
-	padding: 0 5px;
-}
-
-input[type='text'],
-input[type='password'],
-input[type='email'],
-input[type='tel'],
-input[type='url'],
-input[type='number'],
-textarea {
-	box-sizing: border-box;
-	padding: 2px;
-	width: 100%;
-	background: #f5f5f5;
-	border: 1px solid #bebebe;
-	display: block;
-}
-
-input:hover,
-input:focus,
-textarea {
-	outline: none;
-}
-
-input[type='radio']:hover,
-input[type='submit']:hover {
-	cursor: pointer;
-}
-
-select {
-	appearance: none;
-}
-
-select::-ms-expand {
-	display: none;
-}
-
-input[type='number'] {
-	width: 240px;
-}
-
-input[name='your-zip'] {
-	box-sizing: border-box;
-	width: 200px;
-}
-
-input[name='your-address'] {
-	margin-top: 10px;
-}
-
-.your-content {
-	box-sizing: border-box;
-	width: 100%;
-}
-
-@media screen and (max-width: 767px) {
-
-	input[type='text'],
-	input[type='password'],
-	input[type='email'],
-	input[type='tel'],
-	input[type='url'],
-	input[type='number'],
-	textarea {
-		width: 100%;
-	}
-	.wpcf7-radio .wpcf7-list-item {
-		margin-left: 0;
-		display: block;
-	}
-}
-
-#consent-box,
-#submit-box {
-	text-align: center;
-}
-
-#consent-box a {
-	text-decoration: underline;
-}
-
-#submit-box {
-	margin-top: 30px;
-}
-</style>
