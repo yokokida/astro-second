@@ -986,7 +986,7 @@ form-box
 #form-box input[type='number'],
 #form-box textarea {
 	box-sizing: border-box;
-	padding: 2px;
+	padding: 5px 10px;
 	width: 100%;
 	background: #f5f5f5;
 	border: 1px solid #bebebe;
