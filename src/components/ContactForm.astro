@@ -1,0 +1,27 @@
+---
+import ModuleForm from "./ModuleForm.astro";
+---
+<section id="contact-form">
+	<div class="sec-inner">
+		<div class="content-width">
+			<div class="contact-wrapper">
+				<div id="form-box">
+					<form method="POST" action="https://ssgform.com/s/IwCQKp0HXEIE">
+						<ModuleForm />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<style>
+.contact-wrapper {
+	background-color: var(--gray-bg);
+	padding: 90px;
+}
+@media screen and (max-width: 768px) {
+	.contact-wrapper {
+		padding: 30px 10px;
+	}
+}
+</style>
