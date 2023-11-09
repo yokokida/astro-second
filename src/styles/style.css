@@ -465,6 +465,7 @@ figure {
 
 	#wrapper {
 		min-width: 100%;
+		overflow: hidden;
 	}
 
 	.archive-content,
@@ -479,6 +480,7 @@ figure {
 		width: 100%;
 		margin: 0 auto;
 		padding: 0 20px;
+		box-sizing: border-box;
 	}
 
 	.left-center {
@@ -932,6 +934,7 @@ form-box
 	margin: 0;
 	padding: 20px 0 15px;
 	display: flex;
+	flex-wrap: wrap;
 	border-bottom: var(--gray) 1px solid;
 }
 
@@ -1036,6 +1039,10 @@ form-box
 }
 
 @media screen and (max-width: 767px) {
+
+	#form-box dt {
+		width: 100%;
+	}
 
 	#form-box input[type='text'],
 	#form-box input[type='password'],
