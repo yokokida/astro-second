@@ -257,12 +257,15 @@ import logo from '../images/common/logo_01.svg';
 
 
 @media screen and (max-width: 1000px) {
-	#btn-hamburger {
-		display: inline-block;
+	#header .h-inner {
+		padding: 20px;
 	}
-
 	#header .nav-area {
 		display: none;
+	}
+	#btn-hamburger {
+		display: inline-block;
+		margin-right: 0;
 	}
 }
 
@@ -278,7 +281,7 @@ import logo from '../images/common/logo_01.svg';
 	pointer-events: none;
 	opacity: 0;
 	color: var(--white);
-	background-color: var(--black);
+	background-color: var(--navy);
 	overflow: scroll;
 	border-top: 1px solid var(--gray-border);
 }
@@ -286,7 +289,8 @@ import logo from '../images/common/logo_01.svg';
 #sp-menu.is-active {
 	position: fixed;
 	z-index: 99;
-	height: calc(100vh - 70px);
+	/* height: calc(100vh - 70px); */
+	height: 100vh;
 	transition: all .35s ease;
 	pointer-events: auto;
 	opacity: 1;
