@@ -2,7 +2,6 @@ applySpMenu();
 function applySpMenu() {
   const menuBtn = document.getElementById("btn-hamburger");
   const spMenu = document.getElementById("sp-menu");
-  console.log(spMenu);
   menuBtn.addEventListener("click", function () {
     menuBtn.classList.toggle("is-active");
     spMenu.classList.toggle("is-active");
@@ -18,14 +17,14 @@ function applySpMenu() {
   // });
 }
 
-// exLink();
-// function exLink() {
-//   const http = document.querySelectorAll("a[href^=http]");
-//   http
-//     .not('[href*="' + location.hostname + '"]')
-//     .getAttribute({ target: "_blank" })
-//     .classList("ex_link");
-// }
+exLink();
+function exLink() {
+  const anchorTag = document.querySelectorAll("a[href^=http]")[0];
+  const sameDomainLink = anchorTag.href.includes(location.hostname);
+  if (!sameDomainLink) {
+    anchorTag.setAttribute("target", "_blank");
+  }
+}
 
 // smoothScroll();
 // function smoothScroll() {
