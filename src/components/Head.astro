@@ -4,7 +4,7 @@ const siteTitle = "株式会社〇〇";
 const Description = "株式会社〇〇";
 const Domain = "株式会社〇〇";
 const OGP = "株式会社〇〇";
-
+import { ViewTransitions } from 'astro:transitions';
 // const allPosts = await Astro.glob("../pages/*.astro");
 // const allPostsArr = allPosts.forEach(element => {
 // 	element
@@ -34,4 +34,5 @@ const OGP = "株式会社〇〇";
 	<meta property="og:image:height" content="630" />
 	<meta property="og:image:type" content="image/jpeg" />
 	<meta name="twitter:card" content="summary_large_image" />
+	<ViewTransitions />
 </head>
