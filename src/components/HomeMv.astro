@@ -55,7 +55,6 @@ const MvImages = [
 					}
 				</div>
 			</div>
-			<div class="swiper-pagination"></div>
 		</div>
 		<div class="txt-area">
 			<p class="txt">
@@ -76,17 +75,10 @@ const MvImages = [
 import { Swiper } from 'swiper';
 const swiperMv = new Swiper("#home-mv-slider .swiper", {
   loop: true,
-  speed: 1200,
+  speed: 1000,
+	effect: "fade",
   autoplay: {
-    delay: 3000,
-  },
-  effect: "fade",
-  fadeEffect: {
-    crossFade: true,
-  },
-  pagination: {
-    clickable: true,
-    el: "#home-mv-slider .swiper-pagination",
+    delay: 2000,
   },
 });
 </script>
