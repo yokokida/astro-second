@@ -1,3 +1,15 @@
+// SwiperSlide();
+// function SwiperSlide() {
+//   const swiperMv = new Swiper("#home-mv-slider .swiper", {
+//     loop: true,
+//     speed: 1000,
+//     effect: "fade",
+//     autoplay: {
+//       delay: 2000,
+//     },
+//   });
+// }
+
 ApplySpMenu();
 function ApplySpMenu() {
   const menuBtn = document.getElementById("btn-hamburger");
