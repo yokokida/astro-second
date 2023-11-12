@@ -6,6 +6,7 @@ import "../styles/home.css";
 import Head from "@components/Head.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+// import MyScripts from "@script/myscripts.js";
 // section
 import HomeMv from "@components/HomeMv.astro";
 import HomeAbout from "@components/HomeAbout.astro";
@@ -15,7 +16,7 @@ import HomeRecruit from "@components/HomeRecruit.astro";
 ---
 <html lang="ja">
 	<Head />
-	<body transition:animate="slide">
+	<body>
 		<div id="wrapper">
 			<Header />
 			<main>
@@ -26,9 +27,7 @@ import HomeRecruit from "@components/HomeRecruit.astro";
 				<HomeRecruit />
 			</main>
 			<Footer />
+			<!-- <MyScripts /> -->
 		</div>
 	</body>
 </html>
-<script>
-	import "../myscript.js"
-</script>

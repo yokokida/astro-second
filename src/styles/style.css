@@ -419,8 +419,8 @@ figure {
 }
 
 .c-maps::before {
-	content: '';
-	background-image: url(../images/common/icon_maps_01.svg);
+	content: none;
+	/* background-image: url(../images/common/icon_maps_01.svg); */
 	background-repeat: no-repeat;
 	background-size: contain;
 	position: absolute;
@@ -793,6 +793,44 @@ figure {
 parts
 
 ---------------------------- */
+#menu-sp-nav .menu-item a {
+	display: block;
+	width: 100%;
+	line-height: 1.4;
+}
+
+#menu-sp-nav>.menu-item+.menu-item {
+	margin-top: 25px;
+}
+
+#menu-sp-nav .menu-item .en {
+	font-family: var(--inter);
+	font-weight: var(--bold);
+	font-size: 3.2rem;
+	text-transform: uppercase;
+}
+
+#menu-sp-nav .menu-item .ja {
+	font-size: 1.3rem;
+	font-family: var(--shippori);
+}
+
+#menu-sp-nav .sub-menu {
+	position: relative;
+	margin-top: 25px;
+	margin-left: 20px;
+	padding-left: 20px;
+	border-left: 1px solid var(--gray);
+}
+
+#menu-sp-nav .sub-menu .menu-item {
+	font-size: 2rem;
+}
+
+#menu-sp-nav .sub-menu .menu-item+.menu-item {
+	margin-top: 20px;
+}
+
 /* wp-pagenavi */
 .wp-pagenavi {
 	font-size: 1.6rem;

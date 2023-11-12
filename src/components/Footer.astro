@@ -7,8 +7,6 @@ import ctaImg02 from '../images/common/bg_contact_01.jpg';
 const optimizedBgImg01 = await getImage({src: ctaImg01});
 const optimizedBgImg02 = await getImage({src: ctaImg02});
 ---
-</main>
-
 <section id="cta-sec">
 	<div class="content-box">
 		<div class="m-cta-column">
@@ -43,6 +41,7 @@ const optimizedBgImg02 = await getImage({src: ctaImg02});
 		</div>
 	</div>
 </section>
+</main>
 
 <footer id="footer">
 	<div class="f-inner">
@@ -142,10 +141,11 @@ const optimizedBgImg02 = await getImage({src: ctaImg02});
 		</div>
 	</div>
 	<div class="copyright">
-		<p>©All Rights Reserved.</p>
+		<p>&copy;All Rights Reserved.</p>
 	</div>
 </footer>
-
+<script src="/src/scripts/myscript.js"></script>
+<!-- <script is:inline src="/scripts/myscript.js"></script> -->
 <style>
 .m-cta-column {
 	display: flex;
@@ -274,8 +274,6 @@ const optimizedBgImg02 = await getImage({src: ctaImg02});
 	background-size: 50px;
 	background-repeat: no-repeat;
 	writing-mode: vertical-rl;
-	-ms-writing-mode: tb-rl;
-	-webkit-writing-mode: vertical-rl;
 }
 
 #footer .to-top::after {
