@@ -1,5 +1,5 @@
-applySpMenu();
-function applySpMenu() {
+ApplySpMenu();
+function ApplySpMenu() {
   const menuBtn = document.getElementById("btn-hamburger");
   const spMenu = document.getElementById("sp-menu");
   menuBtn.addEventListener("click", function () {
@@ -15,6 +15,13 @@ function applySpMenu() {
   //   $(this).toggleClass("is-active");
   //   $(this).siblings(".sub-menu").toggleClass("is-active");
   // });
+}
+
+ViewTransitions();
+function ViewTransitions() {
+  const body = document.querySelector("body");
+  console.log(body);
+  body.setAttribute("transition:animate", "slide");
 }
 
 exLink();
